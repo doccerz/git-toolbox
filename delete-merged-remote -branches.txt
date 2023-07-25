@@ -1,0 +1,1 @@
+git branch -r --merged remotes/origin/develop | grep -i -v -E "master|develop|sit|uat|staging" | sed 's/origin\///' | xargs git push --delete origin

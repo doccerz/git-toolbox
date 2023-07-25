@@ -1,0 +1,7 @@
+#!/bin/sh
+
+remoteName=$1
+remoteBranch=$2
+
+git push --delete $remoteName $remoteBranch
+git push -u $remoteName $remoteBranch

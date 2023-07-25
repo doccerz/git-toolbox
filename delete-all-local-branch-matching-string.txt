@@ -1,0 +1,1 @@
+git branch | grep "feature/*" | xargs git branch -D

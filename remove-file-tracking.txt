@@ -1,0 +1,2 @@
+git rm --cached $1
+git rm -r --cached $1

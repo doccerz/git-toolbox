@@ -1,0 +1,2 @@
+git tag -a <TAG> <COMMIT-HASH> -m "<MESSAGE>" 
+git push origin <TAG>

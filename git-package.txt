@@ -1,0 +1,17 @@
+#!/bin/sh
+currentBranch=$(git branch --show-current)
+git branch | grep release | xargs git branch -D
+git refresh
+git checkout sit && git checkout -b release/sit-ho
+git merge develop
+git mergetool
+git commit -am "resolve dev-sit conflicts"
+git checkout staging && git checkout -b release/uat-ho
+git merge release/sit-ho
+git mergetool
+git commit -am "resolve sit-uat conflicts"
+git checkout master && git checkout -b release/prod-ho
+git merge release/uat-ho
+git mergetool
+git commit -am "resolve uat-prod conflicts"
+git checkout $currentBranch

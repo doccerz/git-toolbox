@@ -1,0 +1,1 @@
+git config remote.origin.prune true

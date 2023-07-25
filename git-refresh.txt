@@ -1,0 +1,13 @@
+#!/bin/sh
+currentBranch=$(git branch --show-current)
+git fetch --all
+if [ $# -eq 0 ]; then
+	git checkout -f develop && git pull
+	git checkout -f sit && git pull
+	git checkout -f staging && git pull
+	git checkout -f master && git pull
+else
+	git checkout -f $1 && git pull
+fi
+git checkout $currentBranch
+git branch | grep / | xargs git branch -d
